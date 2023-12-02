@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { ApplicationCommandOptionType } = require('discord.js');
 const dotenv = require('dotenv'); dotenv.config();
 var Rcon = require('rcon');
 
@@ -9,7 +9,7 @@ module.exports = {
     options : [{
         name:'pseudo',
         description : 'Commande à envoyer au serveur',
-        type: 	3,
+        type: ApplicationCommandOptionType.String,
         required: true
     }],
     runSlash: async (client, interaction) => {

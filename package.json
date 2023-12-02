@@ -1,6 +1,9 @@
 {
   "dependencies": {
     "discord.js": "^14.14.1",
+    "dotenv": "^16.3.1",
+    "glob": "^7.2.0",
+    "mongoose": "^8.0.2",
     "rcon": "^1.1.0"
   }
 }

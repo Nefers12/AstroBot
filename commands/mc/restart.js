@@ -1,4 +1,3 @@
-const { MessageEmbed } = require('discord.js');
 const dotenv = require('dotenv'); dotenv.config();
 var Rcon = require('rcon');
 

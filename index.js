@@ -1,7 +1,7 @@
-const { Client, Collection } = require('discord.js');
+const { Client, Collection, Partials } = require('discord.js');
 const dotenv = require('dotenv'); dotenv.config();
 const mongoose = require('mongoose');
-const client = new Client({ intents: 515 });
+const client = new Client({ intents: 515, partials: [Partials.Message, Partials.Channel, Partials.Reaction, Partials.User]});
 client.commands = new Collection();
 
 mongoose.connect(process.env.MONGO_URI, {
@@ -15,6 +15,5 @@ mongoose.connect(process.env.MONGO_URI, {
 ['CommandUtil', 'EventUtil'].forEach(handler => { require(`./utils/handlers/${handler}`)(client) });
 
 process.on("unhandledRejection", (err) => {console.error(err);});
-
 
 client.login(process.env.DISCORD_TOKEN);

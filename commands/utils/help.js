@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, ApplicationCommandOptionType } = require('discord.js');
 
 module.exports = {
     name: 'help',
@@ -7,7 +7,7 @@ module.exports = {
     options : [{
         name:'commande',
         description : 'Commande à afficher',
-        type: 	3,
+        type: ApplicationCommandOptionType.String,
     }],
     runSlash: async (client, interaction) => {
             
@@ -15,8 +15,8 @@ module.exports = {
             const cmd = client.commands.map(c => `\`${c.name}\``).join('\n');
 
             if(!commande) {
-                const helpEmbed = new MessageEmbed()
-                .setColor('RANDOM')
+                const helpEmbed = new EmbedBuilder()
+                .setColor('Random')
                 .setAuthor({name: `Un peu d'aide pour ${interaction.user.username}`, iconURL: interaction.user.displayAvatarURL()})
                 .setTitle(`voici la liste des commandes disponibles :`)
                 .setTimestamp()
@@ -24,8 +24,8 @@ module.exports = {
     
                 interaction.reply({embeds: [helpEmbed], ephemeral: true});
             }else{
-                const helpEmbed = new MessageEmbed()
-                .setColor('RANDOM')
+                const helpEmbed = new EmbedBuilder()
+                .setColor('Random')
                 .setAuthor({name: `Aide pour la commande ${commande}`, iconURL: interaction.user.displayAvatarURL()})
                 .setDescription(`${client.commands.get(commande).help}`)
                 .setTimestamp()

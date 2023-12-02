@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, ApplicationCommandOptionType } = require('discord.js');
 
 module.exports = {
     name: 'roll',
@@ -7,19 +7,19 @@ module.exports = {
     options : [{
         name:'faces',
         description : 'Nombre de faces du dé',
-        type: 	4,
+        type: ApplicationCommandOptionType.Integer,
         required: true
     },
     {
         name:'nombre',
         description : 'Nombre de dés lancés',
-        type: 	4,
+        type: ApplicationCommandOptionType.Integer,
         required: false
     },
     {
         name:'cache',
         description : 'Cache le lancé de dés aux autres joueurs',
-        type: 	5,
+        type: ApplicationCommandOptionType.Boolean,
         required: false
     }],
     runSlash: async (client, interaction) => {
@@ -35,8 +35,8 @@ module.exports = {
         if(cache == true) hidden = true;
 
         if(!nombre) {
-            const rollEmbed = new MessageEmbed()
-            .setColor('RANDOM')
+            const rollEmbed = new EmbedBuilder()
+            .setColor('Random')
             .setAuthor({name: `${interaction.user.username} lance un dé à ${faces} faces`, iconURL: interaction.user.displayAvatarURL()})
             .setTitle(`Résultat : ${Math.floor(Math.random() * faces) + 1}`)
             .setTimestamp()
@@ -48,8 +48,8 @@ module.exports = {
         for(let i = 0; i < nombre; i++) {
             result.push(Math.floor(Math.random() * faces) + 1);
         }
-        const rollEmbed = new MessageEmbed()
-        .setColor('RANDOM')
+        const rollEmbed = new EmbedBuilder()
+        .setColor('Random')
         .setAuthor({name: `${interaction.user.username} lance ${nombre} dés à ${faces} faces`, iconURL: interaction.user.displayAvatarURL()})
         .setTitle(`Résultat : ${result.join(', ')}\nTotal : ${result.reduce((a, b) => a + b, 0)}`)
         .setTimestamp()
