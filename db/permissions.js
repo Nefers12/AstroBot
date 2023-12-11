@@ -1,26 +1,34 @@
 const { Schema, model } = require("mongoose");
 
     const permissionsSchema = new Schema({
-        roll: {
-            roles: [String],
-            users: [String],
-        },
-        rcon: {
-            roles: [String],
-            users: [String],
-        },
-        restart: {
-            roles: [String],
-            users: [String],
-        },
-        whitelist:{
-            roles: [String],
-            users: [String],
-        },
-        rl:{
-            roles: [String],
-            users: [String],
-        },
+        id: Number,
+        commands: {
+            roll: {
+                roles: [String],
+                users: [String],
+                enable: {type: Boolean, default: false}
+            },
+            rcon: {
+                roles: [String],
+                users: [String],
+                enable: {type: Boolean, default: true}
+            },
+            restart: {
+                roles: [String],
+                users: [String],
+                enable: {type: Boolean, default: true}
+            },
+            whitelist: {
+                roles: [String],
+                users: [String],
+                enable: {type: Boolean, default: true}
+            },
+            rl: {
+                roles: [String],
+                users: [String],
+                enable: {type: Boolean, default: true}
+            },
+        }
     });
 
 module.exports = model("Permissions", permissionsSchema);

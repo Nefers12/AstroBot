@@ -27,7 +27,7 @@ module.exports = {
                 const helpEmbed = new EmbedBuilder()
                 .setColor('Random')
                 .setAuthor({name: `Aide pour la commande ${commande}`, iconURL: interaction.user.displayAvatarURL()})
-                .setDescription(`${client.commands.get(commande).help}`)
+                .setDescription(`${client.commands.get(commande).description}\n${client.commands.get(commande).help}`)
                 .setTimestamp()
     
                 interaction.reply({embeds: [helpEmbed], ephemeral: true});

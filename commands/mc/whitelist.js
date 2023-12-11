@@ -4,7 +4,7 @@ var Rcon = require('rcon');
 
 module.exports = {
     name: 'whitelist',
-    help:'Envoie des commandes au serveur minecraft',
+    help:'Utilisation : /whitelist <pseudo>',
     description : 'Envoie des commandes au serveur minecraft',
     options : [{
         name:'pseudo',

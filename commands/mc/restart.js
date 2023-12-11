@@ -3,7 +3,7 @@ var Rcon = require('rcon');
 
 module.exports = {
     name: 'restart',
-    help:'Redémarre le serveur minecraft au bout de 30 secondes',
+    help:'Cette commande ne nécessite pas de paramètres',
     description : 'Redémarre le serveur minecraft au bout de 30 secondes',
     runSlash: async (client, interaction) => {
             

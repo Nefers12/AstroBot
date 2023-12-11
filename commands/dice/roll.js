@@ -2,8 +2,8 @@ const { EmbedBuilder, ApplicationCommandOptionType } = require('discord.js');
 
 module.exports = {
     name: 'roll',
-    help:'Pour utiliser cette commande il faut écrire /r <nombre de faces> [nombre de dés] [cache]\nLes arguments entre [] sont optionnels ceux entre <> sont obligatoires',
-    description : 'Roll de dés',
+    help:'Utilisation: /r <nombre de faces> [nombre de dés] [cache]',
+    description : 'Lance un dé',
     options : [{
         name:'faces',
         description : 'Nombre de faces du dé',

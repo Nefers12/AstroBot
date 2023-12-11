@@ -4,7 +4,7 @@ var Rcon = require('rcon');
 
 module.exports = {
     name: 'rcon',
-    help:'Envoie des commandes au serveur minecraft',
+    help:'Utilisation : /rcon <commande>',
     description : 'Envoie des commandes au serveur minecraft',
     options : [{
         name:'commande',
